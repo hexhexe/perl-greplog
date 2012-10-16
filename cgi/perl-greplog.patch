@@ -1,0 +1,20 @@
+--- ./perl-greplog.cgi	2012-10-17 00:04:05.882883709 +0200
++++ ./perl-greplog.cgi	2012-10-17 00:03:26.103381021 +0200
+@@ -185,7 +185,16 @@
+ if ($cgi->param("log_file"))
+ {
+   # check if the logfile is allowed to be viewed
+-  if( $log_file ~~  @log_files )
++  $checked = 0;
++  foreach my $logfile (@log_files)
++  {
++    if( $log_file eq $logfile )
++    {
++      $checked = 1;
++    }
++  }
++  # if the logfiel is allowed
++  if ($checked == 1)
+   {
+     # if the button search has been presst
+     if ($cgi->param('show'))

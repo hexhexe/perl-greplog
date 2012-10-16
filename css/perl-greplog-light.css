@@ -1,0 +1,135 @@
+/*
+/ white and black css stylesheet for PGL (Perl Grep Logviewer)
+/
+/ written by: Sirik Loosman & Dan Glanzmann & Lucy Pelzer
+/ license: GPL
+/
+/ last update: 2012/10/08
+*/
+
+#body {
+  color: #000; 
+  width:98%;
+  text-align:center;
+  font-family: Arial, "MS Trebuchet", sans-serif;                                                                                     
+  background-color: #fff;
+}
+
+#title {
+  font-size:20pt;
+  text-decoration:none;
+}
+
+#nav {
+  font-size:12pt;                                                                                                        
+  text-align:center; 
+  margin-right:25px;
+}
+
+#unsortlist{
+  list-style-type:none;
+}
+
+input  {
+  border-style:ridge;
+  border-radius: 50px;
+  text-align:center;
+}
+
+#logfiles {
+  border-style:ridge;
+  border-radius: 50px;
+  border:1px solid;
+  border-top-right-radius: 15px;                                                                                                       
+  border-bottom-right-radius: 15px;
+  padding:2px;
+}
+
+.styled-select #logfiles {
+  background: transparent;
+  border-style:ridge;
+  border-radius: 50px;
+}
+
+#regexp {
+  background-color:#dddddd;
+  color:black;
+  margin-left:10px;
+  width:250px;
+}
+
+#linenumber {
+  background-color:#dddddd;
+  color:black;
+  margin-left:10px;
+  width:60px;
+  margin-right:10px;
+}
+
+#buttoms {
+  margin:15px;
+}
+
+#show {
+  margin-right:10px;
+  width:100px;
+  margin-left:10px;
+}
+
+#download {
+  margin-left:10px;
+  width:100px;
+  margin-right:10px;
+}
+
+#output {
+  text-align: left;
+  width:100%;
+  font-size: 10pt;
+  font-family: "Courier New", Arial;
+}
+
+#css_li {
+  position:absolute;
+  top:10px;
+  font-size: 8pt;
+  text-align:left;
+  z-index:30;
+}
+
+#css_files {
+  border-style:ridge;
+  border-radius: 50px;
+  border:1px solid;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding:2px;
+}
+
+.styled-select #css_files {
+  background: transparent;
+  border-style:ridge;
+  border-radius: 50px;
+}
+
+#footer {
+  position:absolute;
+  top:0;
+  width:95%;
+  font-size: 8pt;
+  text-align:right;
+}
+
+.bubblewrap {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+a.url {
+  color:#000;
+}
+
+a.regexp {
+  font-weight:bold;
+}

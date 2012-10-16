@@ -1,0 +1,191 @@
+/*
+/ orange and blue css stylesheet for PGL (Perl Grep Logviewer)
+/
+/ written by: Lucy Pelzer
+/ license: GPL
+/
+/ last update: 2012/10/08
+*/
+
+#body {
+  color:#280094; 
+  width:98%;
+  text-align:center;
+  font-family: Arial, "MS Trebuchet", sans-serif;                                                                                     
+  background-color:#ffd852;
+}
+
+#title {
+  font-size:24pt;
+  text-decoration:underline;
+}
+
+#nav {
+  font-size:12pt;
+  text-align:center; 
+  margin-right:25px;
+}
+
+#unsortlist{
+  list-style-type:none;
+}
+
+input  {
+  border-style:ridge;
+  border-radius: 50px;
+  text-align:center;
+}
+
+input[placeholder] {  
+  color: blue;
+  text-align:center;  
+}
+
+#logfiles {
+  background-color:#280094;
+  color:#ffd852;
+  border-style:ridge;
+  border-radius: 50px;
+  border:1px solid;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding:2px;
+}
+
+.styled-select #logfiles {
+  color:#280094;
+  border-style:ridge;
+  border-radius: 50px;
+}
+
+#logfile {
+  background-color:#280094;
+  color:#ffd852;
+}
+
+#regexp {
+  background-color:#280094;
+  color:#ffd852;
+  margin-left:10px;
+  width:250px;
+}
+
+#linenumber {
+  background-color:#280094;
+  color:#ffd852;
+  margin-left:10px;
+  width:60px;
+  margin-right:10px;
+}
+
+#buttoms {
+  margin:15px;
+}
+
+#show {
+  background-color:#280094;
+  color:#ffd852;
+  margin-right:10px;
+  width:100px;
+  margin-left:10px;
+}
+
+#download {
+  background-color:#280094;
+  color:#ffd852;
+  margin-left:10px;
+  width:100px;
+  margin-right:10px;
+}
+
+#output {
+  text-align: left;
+  width:100%;
+  color:#280094;
+  font-size: 10pt;
+  font-family: "Courier New", Arial;
+}
+
+#css_li {
+  position:absolute;
+  top:10px;
+  font-size: 8pt;
+  text-align:left;
+  z-index:30;
+}
+
+#css_files {
+  background-color:#280094;
+  color:#ffd852;
+  border-style:ridge;
+  border-radius: 50px;
+  border:1px solid;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding:2px;
+}
+
+#css_submit {
+  background-color:#280094;
+  color:#ffd852;
+}
+
+.styled-select #css_files {
+  background: transparent;
+  border-style:ridge;
+  border-radius: 50px;
+}
+
+#footer {
+  position:absolute;
+  top:0;
+  width:95%;
+  font-size: 8pt;
+  text-align:right;
+}
+
+#howto_box a:hover:after,
+#howto_box a:focus:after
+{
+    content: attr(title);
+    display: block;
+    text-align: justify;
+    width: 50%;
+}
+
+.bubblewrap {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+#show:hover {
+  -moz-transform:scale(1.1); 
+  -webkit-transform:scale(1.1);
+  -o-transform:scale(1.1);
+}
+
+#download:hover {
+  -moz-transform:scale(1.1); 
+  -webkit-transform:scale(1.1);
+  -o-transform:scale(1.1);
+}
+
+#css_submit:hover {
+  -moz-transform:scale(1.1); 
+  -webkit-transform:scale(1.1);
+  -o-transform:scale(1.1);
+}
+
+a.url {
+  color:#280094;
+}
+
+a.color_url {
+  color:blue;
+}
+
+a.regexp {
+  font-weight: bold;
+  color:black;
+}

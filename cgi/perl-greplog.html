@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+html 5 for the PGL (Perl Grep Logviewer)
+
+written by: Lucy Pelzer
+license: GPL
+
+last update: 2012/10/08
+-->
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="/$csspath/$current_css" type="text/css" >
+    $current_meta
+    <title> Grep Logviewer </title>
+  </head> 
+
+  <body id="body">
+    <header id="header">
+      <h1 id="title"> Grep Logviewer </h1>
+      <nav id="nav">
+        <form action="../cgi-bin/perl-greplog.cgi" method="POST">          
+          <ul id="unsortlist">
+	          <li id="selects">
+	            <select id="logfiles" name="log_file" autofocus>
+                <option id="choose_logfile" value=""> please select a file </option> 
+                [% FOREACH log_file = log_files %]
+                  <option value="$log_file"  [% IF log_file == current_log_file %] selected [% END %] >
+                    $log_file
+                  </option>
+                [% END %]
+              </select> 
+	            <input id="regexp" type="search" placeholder="%search_regexp%" name="regexp" [%IF current_search_regexp != "" %] value="$current_search_regexp" [% END %] >
+	            <input id="linenumber" type="number" min="20" max="1000"  name="linenumber" placeholder="%lines%" [%IF current_linenumber != "" && current_linenumber != 50  %] value="$current_linenumber" [% END %] > 
+              <input id="revert" type="checkbox" name="revert" value="revert" [% IF current_revert == "revert" %] checked [% END %]> reverse
+              <input id="tail" type="checkbox" name="tail" value="tail" [% IF current_tail == "tail" %] checked [% END %]> tail
+              <input id="colors" type="checkbox" name="colors" value="colors" [% IF current_colors == "colors" %] checked [% END %]> colors
+	          </li>
+            <li id="buttoms">
+	            <input id="show" name="show" type="submit" value="Show" />
+              <input id="download" name="download" type="submit" value="Download"/> <br/>
+	          </li>
+            <li id=css_li>
+              <select id="css_files" name="css_files"> 
+                [% FOREACH css IN css_files.keys %]                                               
+                  <option  value="$css" [% IF css == current_css %] selected [% END %] >     
+                    [% css_files.$css %] 
+                  </option>
+                [% END %]  
+              </select> 
+              <input id="css_submit" type="submit" name="show" value="OK"/>
+            </li>
+          </ul>
+        </form>
+      </nav>
+    </header> 
+
+    <hr>
+    <section id="output"> 
+      [% FOREACH line IN content %]
+        $line <br>
+      [% END %]
+    </section>
+
+    <footer id="footer">
+      <p> &copy; opyleft @ Lilu
+      </p>
+      <p  id="howto_box">
+        <a>
+          <img alt="HowTo" src="none" title="The following things could be done with this program.
+
+Every file you see is in reverse order if you do not uncheck the 'reverse' checkbox. All URLs in the output are links that direct you to the URL location.
+
+Show button
+
+1.) To view a file select it and press the 'Show' button.
+2.) In the first field you can put a regular expression you like to search for in the file.
+3.) In the second field you can specify how many lines you like to see below.
+4.) Check the 'tail' checkbox if you like to automatically update the site. Default is 30 secounds. Ask your administrator to change it if this is not fast enough for you.
+5.) Check the 'color' checkbox to get a colored output.
+
+Download button
+
+1.) If the fields are blank, you can choose a log file and press the 'Download' button to download the whole file.
+2.) If the 'search'/'line' fields or the 'tail' checkboxes is set, you can download your selection by pressing the 'Download' button.
+
+Theme
+
+At the left upper corner you could choose between different themes. Just try them out to find the one you like ;)
+          "/>
+        </a>        
+      </p>
+    </footer>
+  </body>
+</html>

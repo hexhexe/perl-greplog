@@ -1,0 +1,29 @@
+Just a really minimalistic logviewer to allow people without
+ssh access to view and grep through logfiles. It is written in
+perl, html 5 and css3. You only need a webserver that can
+deliver cgi scripts and the following perl modules:
+
+File::ReadBackwards
+HTML::Entities
+Template-Toolkit
+
+
+Installation:
+
+You could use the script install.sh to setup the logviewer. It
+needs the user the webserver is running as and you could give
+it a secound parameter to specify the installation directory.
+By default the logviewer is installed under /srv/http/logviewer.
+
+./install.sh <username> <install_dir>
+
+Add the outprinted lines to the configuration of your webserver.
+
+Last but not least you could configure the logviewer in
+/etc/logviewer.conf.
+
+
+Usage:
+
+You could find a HowTo of the Frontend on the Website it
+self. Just hover over the HowTo @ the top left of the page. 
