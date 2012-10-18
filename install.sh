@@ -21,7 +21,7 @@ if [ $# -gt "1"  ]; then
    install_dir=$2;
    echo "The install dir is: $2"
 else    
-  install_dir="/srv/http";
+  install_dir="/srv/http/logviewer";
   echo "The install dir is: $install_dir"
 fi
 
@@ -32,53 +32,51 @@ cpan Template;
 cpan HTML::Entities;
 
 # if the perl version is below 5.016
-if [ `perl -e "if ( $] > 5.016000) { print 'true';}"` ]; then;
+if [ `perl -e "if ( $] < 5.016000) { print 'true';}"` ]; then
     cd cgi
-    patch perl-greplog.cgi < perl-greplog.diff
+    patch perl-greplog.cgi < perl-greplog.patch
     cd ..
-fi;
+fi
 
 
 # create directorys
-mkdir -p $install_dir/css_files;
-mkdir $install_dir/cgi_bin;
+mkdir -p $install_dir/web > /dev/null 2>&1;
+mkdir $install_dir/cgi-bin > /dev/null 2>&1;
 
 # cp needed files
-cp css/* $install_dir/css_files;
-cp cgi/* $install_dir/cgi_bin;
-cp perl-greplog.conf /etc/;
+cp -v css/* $install_dir/web > /dev/null 2>&1;
+cp -v cgi/* $install_dir/cgi-bin > /dev/null 2>&1;
+cp -v conf/perl-greplog.conf /etc/> /dev/null 2>&1;
 
 chown -R $user $install_dir;
-chmod 0400 $install_dir/css_files/*;
-chmod 0400 $install_dir/cgi_bin/perl-greplog.html;
-chmod 0500 $install_dir/cgi_bin/perl-greplog.cgi;
+chmod 0400 $install_dir/web/*;
+chmod 0400 $install_dir/cgi-bin/perl-greplog.html;
+chmod 0500 $install_dir/cgi-bin/perl-greplog.cgi;
 
-    #
-    # enable the logviewer
-    #
-    # touch /var/www/logviewer/conf/
-     ScriptAlias /logviewer/ "/var/www/logviewer/cgi-bin/"
-     <Location /logviewer>
-        Options ExecCGI 
-        Order Deny,Allow
-        Deny from all
-        Allow from 172.16.0.220 Nagios
-        Allow from 172.17.0.0/16
-        Allow from 194.126.145.240
-        Allow from 62.184.128.2
-#        Authtype basic
-#        AuthName "logviewer"
-#       Require valid-user
-     </Location>
-    # if you change did directory you also need to change it in the htmlfile in the firstline at /var/www/logviewer/cgi-bin/perl-greplog
-.html
-     Alias /css_docs/ "/var/www/logviewer/css_docs/"
-     <Directory /css_docs>
-        Order Deny,Allow
-        Deny from all
-        Allow from 172.17.0.0/16
-        Allow from 194.126.145.240
-        Allow from 62.184.128.2
-     </Directory>
-
-
+ehco ''
+echo ' Installation finished successfull!'
+echo ''
+echo ' # Put the following lines into you your apache config'
+echo ''
+echo '    #'
+echo '    # logviewer configration'
+echo '    #'
+echo '    ScriptAlias /logviewer/ "' $install_dir'/cgi-bin/"'
+echo '     <Location /logviewer>'
+echo '        Options ExecCGI'
+echo '        Order Deny,Allow'
+echo '        Deny from all'
+echo '        Allow from 192.168.0.0/16'
+echo '     </Location>'
+echo ''
+echo '     Alias /css_docs/ "' $install_dir '/css_docs/"'
+echo '     <Directory /css_docs>'
+echo '        Order Deny,Allow'
+echo '        Deny from all'
+echo '        Allow from 192.168.0.0/16'
+echo '     </Directory>'
+echo ''
+echo ' # Cyhange the Allow Option to your IP frame or delete the lines'
+echo ''
+echo ' # If you change the ScriptAlias or the Alias don't forget'
+echo ' # to change them in the config file /etc/perl-greplog.conf too'

@@ -13,13 +13,13 @@ Installation:
 You could use the script install.sh to setup the logviewer. It
 needs the user the webserver is running as and you could give
 it a secound parameter to specify the installation directory.
-By default the logviewer is installed under /srv/http/logviewer.
+By default the logviewer is installed in /srv/http/logviewer.
 
 ./install.sh <username> <install_dir>
 
 Add the outprinted lines to the configuration of your webserver.
 
-Last but not least you could configure the logviewer in
+Last but not least you could configure tyhe logviewer in
 /etc/logviewer.conf.
 
 
