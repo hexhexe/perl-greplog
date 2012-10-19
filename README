@@ -19,7 +19,7 @@ By default the logviewer is installed in /srv/http/logviewer.
 
 Add the outprinted lines to the configuration of your webserver.
 
-Last but not least you could configure tyhe logviewer in
+Last but not least you could configure the logviewer in
 /etc/logviewer.conf.
 
 
